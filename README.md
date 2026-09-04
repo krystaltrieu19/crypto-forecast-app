@@ -50,7 +50,7 @@ Two numbers are reported for each model, based on predicting tomorrow's return:
 
 | Naive | 0.02018 | 50.6% |
 
-| **Mean baseline** | **0.01506** | 48.3% |
+| Mean baseline | 0.01506 | 48.3% |
 
 | Linear regression | 0.01534 | 46.7% |
 
