@@ -1,11 +1,4 @@
 
-# Crypto Forecast App
-
-A learning project forecasting cryptocurrency prices using historical data.
-
-Forecasts are evaluated against a naive baseline rather than presented as reliable predictions.
-
-
 ## Model Exploration & Results
 
 ### Data
@@ -21,41 +14,27 @@ I went with this after an early version of the project gave a misleading result.
 Two numbers are reported for each model, based on predicting tomorrow's return:
 
 - **MAE (Mean Absolute Error)**: the average size of the prediction error. Lower is better.
-
 - **Directional Accuracy**: the percentage of days the model correctly predicted the direction of movement (up or down). 50% is the accuracy expected from random guessing.
 
 ### Models tested
 
 | Model | Description |
-
 |---|---|
-
 | Naive | Predicts that tomorrow's return will equal today's return |
-
 | Mean baseline | Predicts that tomorrow's return will equal the average return observed during training |
-
 | Linear regression | Predicts using recent lagged returns and recent volatility as inputs |
-
 | Random Forest | Tested using a single train/test split only. Results suggested overfitting, so this model was not carried forward into the final walk-forward comparison. It is reported here for transparency. |
-
 | ARIMA(3,0,0) | A classical time-series model that predicts future returns based on the statistical pattern of past returns |
-
 | ARIMAX(3,0,0) + Fear & Greed | The same ARIMA model, with the previous day's Fear & Greed Index added as an additional input |
 
 ### Results (averaged across the 6 test windows)
 
 | Method | Avg MAE | Avg Directional Acc |
-
 |---|---|---|
-
 | Naive | 0.02018 | 50.6% |
-
 | Mean baseline | 0.01506 | 48.3% |
-
 | Linear regression | 0.01534 | 46.7% |
-
 | ARIMA(3,0,0) | 0.01510 | 43.3% |
-
 | ARIMAX(3,0,0) + Fear & Greed | 0.01527 | 45.6% |
 
 ### Conclusion
@@ -65,4 +44,3 @@ None of the models tested including those using engineered features, classical t
 Adding the Fear & Greed Index did not meaningfully improve results. This is likely because a large portion of the index is derived from price-based measures, such as volatility, which the other models could already access in a different form.
 
 This outcome is treated as a central finding of the project, not a shortcoming. It reflects the well-documented difficulty of forecasting short-term cryptocurrency price movements, and it shaped the design of the accompanying application, which presents forecasts transparently alongside their baseline comparisons rather than overstating their reliability.
-
